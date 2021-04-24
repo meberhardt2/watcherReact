@@ -102,20 +102,10 @@ hr{
 	margin-bottom:40px;
 }
 
-.bookmark-link{
-	font-size:40px;
-	margin-top:20px;
-}
-
 .button-icon{
 	background-color: transparent;
 	border:0;
 }
-
-.tag-name{
-	margin-left:10px;
-}
-
 
 .modal-container {
 	position: relative;
@@ -149,36 +139,6 @@ hr{
 	margin-right:5px;
 }
 
-.recipe{
-	height:500px !important;
-}
-
-.ingredients{
-	height:170px !important;
-}
-
-.tag-holder{
-	height:200px;
-	overflow: auto;
-	border: 1px solid #ffffff;
-	padding:4px;
-}
-
-.tag-holder-header{
-	text-align: center;
-}
-
-.tag-link{
-	color: #ffffff;
-	/*border-bottom: 1px solid #ffffff;*/
-	/*padding-bottom: 3px;*/
-}
-
-.tag-link:hover{
-	/*border-bottom: 0;*/
-	color: #707070;
-}
-
 .hidden{
 	display:none;
 }
@@ -196,19 +156,14 @@ hr{
 	white-space: pre-line;
 }
 
-.camera-image{
-	display:inline-block;
-	max-width: 400px;
-}
-
-textarea.ocr-textbox{
-	height:250px;
-}
-
 .attention, .attention a{
 	color:aqua;
 	font-weight: bold;
 	font-size: 1rem;
+}
+
+.form-holder{
+	margin-top:100px;
 }
 
 
