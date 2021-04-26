@@ -2,15 +2,15 @@ import React from 'react';
 
 
 /**************************************************************************************/
-function Form(){
+function Form({form, handleInputChange}){
     return(
         <div className="row form-holder">
-            <div class="col-12 col-md-2"></div>
-            <div class="col-12 col-md-8 text-center">
+            <div className="col-12 col-md-2"></div>
+            <div className="col-12 col-md-8 text-center">
                 Stream Watcher<br />
-                <input type="text" className="form-control" name="query" id="query" />
+                <input type="text" className="form-control" name="query" id="query" onChange={handleInputChange} value={form.query} />
             </div>
-            <div class="col-12 col-md-2"></div>
+            <div className="col-12 col-md-2"></div>
         </div>
     )
 }
