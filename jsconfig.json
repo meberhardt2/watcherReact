@@ -1,4 +1,5 @@
 {
+	"exclude": ["jsoonfig.json"],
 	"typeAcquisition": {
 		"exclude": [ "dotenv" ]
 	},
