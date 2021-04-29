@@ -96,6 +96,9 @@ function Search(){
                 document.getElementById('spinner-holder').style.display = 'none';
 
                 if(typeof data === 'undefined' || typeof data.status === 'undefined' || data.status === 'error'){
+                    toast.error('there was an error');
+                }
+                else if(data.status === 'forbidden'){
                     toast.error('that\'s restricted');
                 }
                 else{
