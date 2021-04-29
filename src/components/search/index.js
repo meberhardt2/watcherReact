@@ -18,7 +18,7 @@ function Search(){
     });
 
     //when just using the update contact function, use a comma
-    
+
     const [, setSearchResults] = useContext(SearchResultsContext)
     //const [searchResults, setSearchResults] = useContext(SearchResultsContext)
     /*
@@ -37,6 +37,15 @@ function Search(){
             return { ...prevValues,[e.target.name]: e.target.value}
         });
     };
+	/****************************************/
+
+
+	/****************************************/
+    const handleKeyUp = e => {
+        if(e.key === 'Enter'){
+            handleSearch();
+        }
+    }
 	/****************************************/
 
     
@@ -66,7 +75,7 @@ function Search(){
         <Fragment>
             <ErrorBoundary>
                 <Suspense fallback={<Loading />}>
-                    <Form searchForm={searchForm} handleInputChange={handleInputChange} handleSearch={handleSearch} />
+                    <Form searchForm={searchForm} handleInputChange={handleInputChange} handleSearch={handleSearch} handleKeyUp={handleKeyUp} />
                 </Suspense>
             </ErrorBoundary>
 
