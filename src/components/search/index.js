@@ -17,8 +17,10 @@ function Search(){
         query: ''
     });
 
-    const [searchResults, setSearchResults] = useContext(SearchResultsContext)
-    console.log(searchResults);
+    //when just using the update contact function, use a comma
+    
+    const [, setSearchResults] = useContext(SearchResultsContext)
+    //const [searchResults, setSearchResults] = useContext(SearchResultsContext)
     /*
     const [searchResults, setResults] = useState({
         results: [],
@@ -30,12 +32,10 @@ function Search(){
 
     /****************************************/
     const handleInputChange = e =>{
-        setValues({...searchForm, [e.target.name]: e.target.value});
-        /*
+        //setValues({...searchForm, [e.target.name]: e.target.value});
         setValues( prevValues => {
             return { ...prevValues,[e.target.name]: e.target.value}
         });
-        */
     };
 	/****************************************/
 
@@ -61,11 +61,7 @@ function Search(){
     }
 	/****************************************/
 
-/*
-            {searchResults.total !== null &&
-                <Results results={searchResults} />
-            }
-*/
+
     return(
         <Fragment>
             <ErrorBoundary>
@@ -74,6 +70,7 @@ function Search(){
                 </Suspense>
             </ErrorBoundary>
 
+            <Results />
         </Fragment>
     )
 }

@@ -7,8 +7,6 @@ export const SearchResultsContext = createContext();
 export const SearchResultsContextProvider = props => {
     const [searchResults, setSearchResults] = useState([]);
 
-    //const [searchResults, setSearchResults] = useState([1]);
-
     return (
         <SearchResultsContext.Provider value={[searchResults, setSearchResults]}>
             {props.children}
