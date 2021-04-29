@@ -166,8 +166,17 @@ hr{
 	margin-top:100px;
 }
 
+.search-image{
+	max-width:250px;
+	width: 100%;
+	margin: 0 10px 10px 0;
+}
 
-@media (max-width:480px){
+.trackit-holder{
+	margin: 10px 0 0 0;
+}
+
+@media (max-width:500px){
 	.top-nav a{
 		padding-right:0;
 		padding-left:0;
@@ -175,4 +184,8 @@ hr{
 		margin-right:0;
 	}
 
+	.search-image{
+		max-width:150px;
+		width: 100%;
+	}
 }

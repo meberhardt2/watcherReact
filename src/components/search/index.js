@@ -61,10 +61,46 @@ function Search(){
         if(proceed){
             document.getElementById('spinner-holder').style.display = 'block';
             
-            API.search().then((data) => {
+            let data = {
+                query: searchForm.query
+            };
+
+            API.search(data).then((data) => {
                 document.getElementById('spinner-holder').style.display = 'none';
 
-                setSearchResults(data);
+                if(typeof data === 'undefined' || typeof data.status === 'undefined' || data.status === 'error'){
+                    toast.error('hmm something went wrong with that search');
+                }
+                else{
+                    setSearchResults(data);
+                }
+            });
+        }
+    }
+	/****************************************/
+
+
+ 	/****************************************/
+    const handleTrackIt = (id) => {
+        if(id === ''){
+            toast.error('uhoh, this should never happen..');
+        }
+        else{
+            let data = {
+                id: id
+            };
+
+            document.getElementById('spinner-holder').style.display = 'block';
+            
+            API.trackIt(data).then((data) => {
+                document.getElementById('spinner-holder').style.display = 'none';
+
+                if(typeof data === 'undefined' || typeof data.status === 'undefined' || data.status === 'error'){
+                    toast.error('that\'s restricted');
+                }
+                else{
+                    toast.success('tracking it!');
+                }
             });
         }
     }
@@ -79,7 +115,7 @@ function Search(){
                 </Suspense>
             </ErrorBoundary>
 
-            <Results />
+            <Results handleTrackIt={handleTrackIt} />
         </Fragment>
     )
 }

@@ -4,10 +4,15 @@ import Result from 'components/search/result';
 import { SearchResultsContext } from 'components/contexts/searchResultsContext';
 
 /**************************************************************************************/
-function Results(){
+function Results(props){
+
+	/****************************************/
     //when you just need the value from the contact, don't load in the update function
     const [searchResults] = useContext(SearchResultsContext)
+	/****************************************/
 
+
+	/****************************************/
     return(
         <div className="results-holder">
             {typeof searchResults.total !== 'undefined' && 
@@ -21,12 +26,13 @@ function Results(){
                     </div>
 
                     {searchResults.results.map((result,index) =>
-                        <Result key={result.id} result={result} />
+                        <Result result={result} handleTrackIt={props.handleTrackIt} key={result.id} />
                     )}
                 </Fragment>
             }
         </div>
     )
+	/****************************************/
 }
 /**************************************************************************************/
 
