@@ -2,14 +2,14 @@ import React from 'react';
 
 
 /**************************************************************************************/
-function Form({form, handleInputChange, handleSearch}){
+function Form({searchForm, handleInputChange, handleSearch}){
     return(
         <div className="form-holder">
             <div className="row ">
                 <div className="col-12 col-md-2"></div>
                 <div className="col-12 col-md-8 text-center">
                     Stream Watcher<br />
-                    <input type="text" placeholder="enter any title..." className="form-control" name="query" id="query" onChange={handleInputChange} value={form.query} />
+                    <input type="text" placeholder="enter any title..." className="form-control" name="query" id="query" onChange={handleInputChange} value={searchForm.query} />
                 </div>
                 <div className="col-12 col-md-2"></div>
             </div>

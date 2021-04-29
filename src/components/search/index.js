@@ -1,29 +1,36 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState, Fragment, useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import Loading from 'components/common/loading';
 import ErrorBoundary from 'components/common/error_boundary';
 import API from 'api/api';
+import { SearchResultsContext } from 'components/contexts/searchResultsContext';
 
 const Form = lazy(() => import('components/search/form'));
+const Results = lazy(() => import('components/search/results'));
 
 /**************************************************************************************/
 function Search(){
 
-	/****************************************/
-    const [form, setValues] = useState({
+    /****************************************/
+    const [searchForm, setValues] = useState({
         query: ''
     });
 
-    const [results, setResults] = useState({
-        streams: []
+    const [searchResults, setSearchResults] = useContext(SearchResultsContext)
+    console.log(searchResults);
+    /*
+    const [searchResults, setResults] = useState({
+        results: [],
+        total: null
     });
+    */
 	/****************************************/
 
 
     /****************************************/
     const handleInputChange = e =>{
-        setValues({...form, [e.target.name]: e.target.value});
+        setValues({...searchForm, [e.target.name]: e.target.value});
         /*
         setValues( prevValues => {
             return { ...prevValues,[e.target.name]: e.target.value}
@@ -37,7 +44,7 @@ function Search(){
     const handleSearch = () => {
         let proceed = true;
 
-        if(form.query.length < 3){
+        if(searchForm.query.length < 3){
             proceed = false;
             toast.error("That's too vague");
         }
@@ -47,21 +54,27 @@ function Search(){
             
             API.search().then((data) => {
                 document.getElementById('spinner-holder').style.display = 'none';
-                console.log(data);
-                setResults(data);
+
+                setSearchResults(data);
             });
         }
     }
 	/****************************************/
 
-
-
+/*
+            {searchResults.total !== null &&
+                <Results results={searchResults} />
+            }
+*/
     return(
-        <ErrorBoundary>
-            <Suspense fallback={<Loading />}>
-                <Form form={form} handleInputChange={handleInputChange} handleSearch={handleSearch} />
-            </Suspense>
-        </ErrorBoundary>
+        <Fragment>
+            <ErrorBoundary>
+                <Suspense fallback={<Loading />}>
+                    <Form searchForm={searchForm} handleInputChange={handleInputChange} handleSearch={handleSearch} />
+                </Suspense>
+            </ErrorBoundary>
+
+        </Fragment>
     )
 }
 /**************************************************************************************/
