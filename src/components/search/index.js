@@ -68,7 +68,7 @@ function Search(){
             API.search(data).then((data) => {
                 document.getElementById('spinner-holder').style.display = 'none';
 
-                if(typeof data === 'undefined' || typeof data.status === 'undefined' || data.status === 'error'){
+                if(typeof data === 'undefined'){
                     toast.error('hmm something went wrong with that search');
                 }
                 else{
@@ -120,7 +120,7 @@ function Search(){
 
             <Results handleTrackIt={handleTrackIt} />
         </Fragment>
-    )
+    );
 }
 /**************************************************************************************/
 
