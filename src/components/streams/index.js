@@ -15,8 +15,8 @@ function Streams(){
         API.getStreams().then((data) => {
             console.log(data);
             setStreams(data);
-        }, []);
-    });
+        });
+    }, []);
 	/****************************************/
 
 
