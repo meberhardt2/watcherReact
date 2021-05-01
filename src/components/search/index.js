@@ -18,9 +18,7 @@ function Search(){
     });
 
     //when just using the update contact function, use a comma
-
     const [, setSearchResults] = useContext(SearchResultsContext)
-    //const [searchResults, setSearchResults] = useContext(SearchResultsContext)
     /*
     const [searchResults, setResults] = useState({
         results: [],
@@ -81,25 +79,32 @@ function Search(){
 
 
  	/****************************************/
-    const handleTrackIt = (id) => {
+    const handleTrackIt = (id, stream_name) => {
         if(id === ''){
             toast.error('uhoh, this should never happen..');
         }
         else{
             let data = {
-                id: id
+                id: id,
+                stream_name: stream_name
             };
 
-            document.getElementById('spinner-holder').style.display = 'block';
+            //document.getElementById('spinner-holder').style.display = 'block';
             
             API.trackIt(data).then((data) => {
-                document.getElementById('spinner-holder').style.display = 'none';
+                //document.getElementById('spinner-holder').style.display = 'none';
 
                 if(typeof data === 'undefined' || typeof data.status === 'undefined' || data.status === 'error'){
                     toast.error('there was an error');
                 }
                 else if(data.status === 'forbidden'){
                     toast.error('that\'s restricted');
+                }
+                else if(data.status === 'duplicate'){
+                    toast.error('already tracking');
+                }
+                else if(data.status === 'error'){
+                    toast.error('error adding stream');
                 }
                 else{
                     toast.success('tracking it!');
@@ -110,6 +115,7 @@ function Search(){
 	/****************************************/
 
 
+	/****************************************/
     return(
         <Fragment>
             <ErrorBoundary>
@@ -121,6 +127,7 @@ function Search(){
             <Results handleTrackIt={handleTrackIt} />
         </Fragment>
     );
+	/****************************************/
 }
 /**************************************************************************************/
 

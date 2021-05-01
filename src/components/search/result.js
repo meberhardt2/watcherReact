@@ -19,7 +19,7 @@ function Result(props){
                 <div>{props.result.l} ({props.result.q})</div>
                 <div>Year: {props.result.y}</div>
                 <div>Years Running: {typeof props.result.yr !== 'undefined' && <span>{props.result.yr}</span>}</div>
-                <div className="trackit-holder"><button type="button" className="btn btn-info" onClick={() => props.handleTrackIt(props.result.id)}>Track it!</button></div>
+                <div className="trackit-holder"><button type="button" className="btn btn-info" onClick={() => props.handleTrackIt(props.result.id, props.result.l)}>Track it!</button></div>
             </div>
             <div className="col-12 col-md-2"></div>
         </div>

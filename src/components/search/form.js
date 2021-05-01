@@ -8,7 +8,6 @@ function Form(props){
             <div className="row ">
                 <div className="col-12 col-md-2"></div>
                 <div className="col-12 col-md-8 text-center">
-                    Stream Watcher<br />
                     <input type="text" placeholder="enter any title..." className="form-control" name="query" id="query" onKeyUp={props.handleKeyUp} onChange={props.handleInputChange} value={props.searchForm.query} />
                 </div>
                 <div className="col-12 col-md-2"></div>
