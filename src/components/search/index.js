@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useState, Fragment, useContext } from 'react';
 import { toast } from 'react-toastify';
+import { withRouter } from 'react-router-dom';
 
 import Loading from 'components/common/loading';
 import ErrorBoundary from 'components/common/error_boundary';
@@ -10,7 +11,7 @@ const Form = lazy(() => import('components/search/form'));
 const Results = lazy(() => import('components/search/results'));
 
 /**************************************************************************************/
-function Search(){
+function Search(props){
 
     /****************************************/
     const [searchForm, setValues] = useState({
@@ -116,6 +117,13 @@ function Search(){
 
 
 	/****************************************/
+    const handleDetails = (id) =>{
+        props.history.push("/streams/"+id);
+    }
+	/****************************************/
+
+
+	/****************************************/
     return(
         <Fragment>
             <ErrorBoundary>
@@ -124,7 +132,7 @@ function Search(){
                 </Suspense>
             </ErrorBoundary>
 
-            <Results handleTrackIt={handleTrackIt} />
+            <Results handleTrackIt={handleTrackIt} handleDetails={handleDetails} />
         </Fragment>
     );
 	/****************************************/
@@ -132,4 +140,4 @@ function Search(){
 /**************************************************************************************/
 
 
-export default Search;
+export default withRouter(Search);

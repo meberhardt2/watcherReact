@@ -26,7 +26,7 @@ function Results(props){
                     </div>
 
                     {searchResults.results.map((result,index) =>
-                        <Result result={result} handleTrackIt={props.handleTrackIt} key={result.id} />
+                        <Result result={result} handleTrackIt={props.handleTrackIt} handleDetails={props.handleDetails} key={result.id} />
                     )}
                 </Fragment>
             }
