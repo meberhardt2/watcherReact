@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import 'css/bootstrap.min.css';
 import 'css/style.css';
+import 'css/modal.css';
 
 import App from 'app';
 

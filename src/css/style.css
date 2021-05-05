@@ -191,9 +191,6 @@ hr{
 	color:aqua;
 }
 
-.modal.block{
-	display: block;
-}
 
 @media (max-width:500px){
 	.top-nav a{

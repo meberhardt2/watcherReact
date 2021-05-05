@@ -1,53 +1,60 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
+
 /**************************************************************************************/
 function Modal(props){
 
     /****************************************/
     const [styles, setStyles] = useState({
-        modal: 'modal fade',
-        cover: 'modal-backdrop fade'
+        modal: 'modalJAM fade',
+        cover: 'modal-backdropJAM fade'
     });
 	/****************************************/
 
 
 	/****************************************/
     useEffect(() => {
-        console.log('modal prop change '+props.show);
+        toggleModal(props.modalInfo.showModal);
+    }, [props.modalInfo.showModal]);
+	/****************************************/
+
+
+	/****************************************/
+    const toggleModal = (show) => {
         let newStyles = {};
-        if(props.show){
+        if(show){
             newStyles = {
-                modal: 'modal fade show block',
-                cover: 'modal-backdrop fade show'
+                modal: 'modalJAM fade show block',
+                cover: 'modal-backdropJAM fade show'
             };
         }
         else{
             newStyles = {
-                modal: 'modal fade',
-                cover: 'modal-backdrop fade'
+                modal: 'modalJAM fade',
+                cover: 'modal-backdropJAM fade'
             };
         }
 
         setStyles(newStyles);
-
-    }, [props.show]);
+    }
 	/****************************************/
 
-//modal fade show
-	/****************************************/
+
+    /****************************************/
 	return(
         <Fragment>
             <div className={styles.modal} role="dialog">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Alert</h5>
+                <div className="modal-dialogJAM" role="document">
+                    <div className="modal-contentJAM">
+                        <div className="modal-headerJAM">
+                            <h5 className="modal-titleJAM">Alert</h5>
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-bodyJAM">
                             body
                         </div>
-                        <div className="modal-footer">
-                            
+                        <div className="modal-footerJAM">
+                            <button type="button" className="btnJAM btn-dangerJAM" onClick={props.handleAction}>Delete</button>
+                            <button type="button" className="btnJAM btn-secondaryJAM" onClick={props.handleCancel}>Cancel</button>
                         </div>
                     </div>
                 </div>

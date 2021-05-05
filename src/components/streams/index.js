@@ -11,7 +11,7 @@ function Streams(props){
     /****************************************/
     const [streams, setStreams] = useState([]);
     const [modalInfo, setModalInfo] = useState({
-        show: false,
+        showModal: false,
         actionID: '',
         action: ''
     });
@@ -30,17 +30,42 @@ function Streams(props){
 	/****************************************/
     const handleDetails = (id) => {
         props.history.push("/streams/"+id);
-    }
+    };
 	/****************************************/
 
 
  	/****************************************/
     const handleDelete = (id) => {
-		let tempModalState = JSON.parse(JSON.stringify(modalInfo));
+		let modalInfo = {
+            showModal: true,
+            actionID: id,
+            action: 'deleteStream'
+        };
 
-        tempModalState.show = true;
-        setModalInfo(tempModalState);
-    }
+        setModalInfo(modalInfo);
+    };
+	/****************************************/
+
+
+	/****************************************/
+    const handleCancel = () => {
+		let modalInfo = {
+            showModal: false,
+            actionID: '',
+            action: ''
+        };
+
+        setModalInfo(modalInfo);
+    };
+	/****************************************/
+
+
+	/****************************************/
+    const handleAction = () => {
+        console.log(modalInfo);
+
+        handleCancel();
+    };
 	/****************************************/
 
 
@@ -59,7 +84,7 @@ function Streams(props){
                 )}
             </div>
 
-            <Modal show={modalInfo.show} actionID={modalInfo.actionID} />
+            <Modal modalInfo={modalInfo} handleCancel={handleCancel} handleAction={handleAction} actionID={modalInfo.actionID} />
         </Fragment>
     )
 	/****************************************/
