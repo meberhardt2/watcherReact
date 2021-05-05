@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import API from 'api/api';
+import Modal from 'components/common/modal';
 import Result from 'components/streams/result';
 
 /**************************************************************************************/
@@ -9,6 +10,11 @@ function Streams(props){
 
     /****************************************/
     const [streams, setStreams] = useState([]);
+    const [modalInfo, setModalInfo] = useState({
+        show: false,
+        actionID: '',
+        action: ''
+    });
 	/****************************************/
 
 
@@ -22,8 +28,18 @@ function Streams(props){
 
 
 	/****************************************/
-    const handleDetails = (id) =>{
+    const handleDetails = (id) => {
         props.history.push("/streams/"+id);
+    }
+	/****************************************/
+
+
+ 	/****************************************/
+    const handleDelete = (id) => {
+		let tempModalState = JSON.parse(JSON.stringify(modalInfo));
+
+        tempModalState.show = true;
+        setModalInfo(tempModalState);
     }
 	/****************************************/
 
@@ -39,9 +55,11 @@ function Streams(props){
 
             <div className="saved-streams-holder">
                 {streams.map((result,index) =>
-                    <Result result={result} key={result.id} handleDetails={handleDetails} extraClass={streams.length === (index + 1) ? 'last' : ''} />
+                    <Result result={result} key={result.id} handleDetails={handleDetails} handleDelete={handleDelete} extraClass={streams.length === (index + 1) ? 'last' : ''} />
                 )}
             </div>
+
+            <Modal show={modalInfo.show} actionID={modalInfo.actionID} />
         </Fragment>
     )
 	/****************************************/
