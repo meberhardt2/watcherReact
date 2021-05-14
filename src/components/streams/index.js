@@ -30,7 +30,18 @@ function Streams(props){
 
 	/****************************************/
     const handleDetails = (id) => {
-        props.history.push("/streams/"+id);
+        //props.history.push("/streams/"+id);
+        let modalInfo = {
+            showModal: true,
+            actionID: 0,
+            action: 'deleteStream',
+            config:{
+                body: 'super important info',
+                title: 'Details'
+            }
+        };
+
+        setModalInfo(modalInfo);
     };
 	/****************************************/
 
@@ -41,6 +52,9 @@ function Streams(props){
             showModal: true,
             actionID: id,
             action: 'deleteStream',
+            config:{
+                body: 'Remove the saved stream?'
+            }
         };
 
         setModalInfo(modalInfo);

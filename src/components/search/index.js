@@ -58,14 +58,14 @@ function Search(props){
         }
 
         if(proceed){
-            document.getElementById('spinner-holder').style.display = 'block';
+            document.getElementById('JAT-container').style.display = 'block';
             
             let data = {
                 query: searchForm.query
             };
 
             API.search(data).then((data) => {
-                document.getElementById('spinner-holder').style.display = 'none';
+                document.getElementById('JAT-container').style.display = 'none';
 
                 if(typeof data === 'undefined'){
                     toast.error('hmm something went wrong with that search');

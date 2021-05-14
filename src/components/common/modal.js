@@ -47,8 +47,8 @@ function Modal(props){
                     newConfig.buttonOKText = 'OK';
                 }
                 else{
-                    newConfig.title = typeof props.modalInfo.config.title !== 'undefined' && props.modalInfo.config.title !== '' ? props.modalInfo.config.title : 'Alert';
-                    newConfig.body = typeof props.modalInfo.config.body !== 'undefined' && props.modalInfo.config.body !== '' ? props.modalInfo.config.body : 'Are you sure?';
+                    newConfig.title = typeof props.modalInfo.config.title !== 'undefined' && props.modalInfo.config.title !== '' ? props.modalInfo.config.title : 'Info';
+                    newConfig.body = typeof props.modalInfo.config.body !== 'undefined' && props.modalInfo.config.body !== '' ? props.modalInfo.config.body : 'I need a body';
                     newConfig.buttonOKText = typeof props.modalInfo.config.buttonOKText !== 'undefined' && props.modalInfo.config.buttonOKText !== '' ? props.modalInfo.config.buttonOKText : 'OK';
                 }
             }
