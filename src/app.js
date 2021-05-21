@@ -9,6 +9,7 @@ import { SearchResultsContextProvider } from 'components/contexts/searchResultsC
 const Search = lazy(() => import('components/search/index'));
 const Streams = lazy(() => import('components/streams/index'));
 const Stream = lazy(() => import('components/streams/stream'));
+const Dev = lazy(() => import('components/dev/index'));
 
 /**************************************************************************************/
 function App() {
@@ -24,6 +25,7 @@ function App() {
 								<Route exact path="/"><Search /></Route>
 								<Route exact path="/streams"><Streams /></Route>
 								<Route path="/streams/:id"><Stream /></Route>
+								<Route exact path="/dev"><Dev /></Route>
 							</Switch>
 						</Suspense>
 					</ErrorBoundary>

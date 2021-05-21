@@ -21,7 +21,7 @@ toast.configure({
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Throbber throbberType='dogChasingTail' />
+		<Throbber throbberType='rightRoundBaby' />
 		<App />
 	</BrowserRouter>,
 	document.getElementById('root')
