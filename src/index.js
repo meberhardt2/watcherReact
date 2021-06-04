@@ -10,6 +10,7 @@ import 'css/bootstrap.min.css';
 import 'css/style.css';
 import 'css/modal.css';
 import 'css/throbber.css';
+import 'css/tags.css';
 
 import App from 'app';
 
