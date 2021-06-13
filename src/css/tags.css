@@ -6,13 +6,33 @@
 	overflow: auto;
 }
 
-.JATM-holder div{
+.JATM-tag{
 	padding:6px;
 }
 
-.JATM-holder div:hover{
+.JATM-tag:hover{
 	cursor: pointer;
 	background-color: beige;
 	border-radius: 4px;
 	color: #333;
+}
+
+.JATM-unused .JATM-tag-text{
+	height: 22px;
+	display: inline-block;
+}
+
+.JATM-unused .JATM-tag-text.JATM-tag-image{
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAe1BMVEUAAAAzpdItlr/p5eV8pL7Tz8+kuMkxoc49g6MvncgwmsQvkLdCiqzw6+vY1NSftcU5mL8uk7xMkrQujbMwia4/hqdCdpHe2tq1vcWjtMFuor+8u7xknbyNprg4kLY1hagogaU2kKAnjZ8/fp0vepsvipc6bYQxgYI+gHkt3PROAAAAAXRSTlMAQObYZgAAAItJREFUGNNV0FkSwiAQRdH30Ahk0CSaOM/j/lcoNJbA+emq+wPdCOpKqWWNaKXJviX1GT8tnWJGp4PoGBNPcAzTxAeAMk8KGJknfmC0EsVWRsknLv1ENI2MPW8wdirWGxkHXnFnMF8weAM6T9Zvk784wLFpKuGNOiaL4OUXOO7k63+mIqkrg9QQb/gF52IF0NoDKFwAAAAASUVORK5CYII=') no-repeat left center;
+	padding-left:22px;
+}
+
+.JATM-used .JATM-tag-text{
+	height: 22px;
+	display: inline-block;
+}
+
+.JATM-used .JATM-tag-text.JATM-tag-image{
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAtFBMVEUAAAAcuFIcuFLCUUXIUkbMWE1NikGtUEgis1KLUk1uTkxzVVBmZGVub2/CVEm4UEW4TUKzUEewVU63WVCvRjy2WlKnZEGmakqeZ0WvUUo7llKrVEynVE4qlUmnS0KEZ0KmU016bUmUVk6aTUiJUEg+sl2AQDp/UU9+aFxHgFI7jE9pNTJaV1l0aGVYTExvdHHfXE7LU0bu6enKhIDTVkncWkzZWUzVV0rBubm/npzHcmvMaGBRA5Y/AAAAMHRSTlMAZh7+9/7MyHhxU0AuCfLj3tzT0szLycS+vLa2rKypn5qUk4qBeXBtXVpAPzw5MyM4lHmXAAAAk0lEQVQY013Q1xaCMBRE0ZFQpNl7773caADL//+XxLCUcJ5m7cdB6Vt5YNvjtZqQXYYsIorYKABgSFlZlGW6ihYx/RKuJE9QLu6nVCOthgEv1inZY0aFpnBed613F63HTevZQV9wraSHJRWa4yR04QfA0WliAIGZl8o1Jeysv5hH9YRfzSCqn6EI4abJOGftbYiUPvPfLP7HjQvEAAAAAElFTkSuQmCC') no-repeat left center;
+	padding-left:22px;
 }

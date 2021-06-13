@@ -66,12 +66,12 @@ function Dev(){
 			<div className="row">
 				<div className="col-4">
 					Available Tags:
-					<JATMAvailableTags />
+					<JATMAvailableTags background={true} />
 				</div>
 
 				<div className="col-4">
 					Select Tags:
-					<JATMSelectedTags />
+					<JATMSelectedTags background={true} />
 				</div>
 			</div>
 		</Fragment>

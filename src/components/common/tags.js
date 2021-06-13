@@ -129,14 +129,8 @@ export function JATMLoadTags(tags){
 
 /**************************************************************************************/
 //deconstruct props right to the tags, so we can watch tags in the useEffect and just change rendering when tags gets changed
-export function JATMAvailableTags({tags}){
-	let test = useJATMTags();
-
-	/*
-	const parseTags = (tags) => {
-		test.actions.setTags([{id:0,displayName:'zero1',selected:false}]);
-	}
-	*/
+export function JATMAvailableTags(props){
+	let jasmState = useJATMTags();
 
 	/****************************************/
 	const selectTag = (id) => {
@@ -175,16 +169,18 @@ export function JATMAvailableTags({tags}){
 		tempState.unused_tags = tempUnusedTags;
 		tempState.used_tags = tempUsedTags;
 
-		test.actions.setTags(tempState);
+		jasmState.actions.setTags(tempState);
 	}
 	/****************************************/
 
 
 	/****************************************/
 	return (
-		<div className="JATM-holder">
+		<div className="JATM-holder JATM-unused">
             {jatmTagStore.get().unused_tags.map((tag,index) =>
-				<div key={tag.id} onClick={() => {selectTag(tag.id)}}>{tag.displayName}</div>
+				<div className="JATM-tag" key={tag.id} onClick={() => {selectTag(tag.id)}}>
+					<div className={props.background ? 'JATM-tag-text JATM-tag-image' : 'JATM-tag-text'}>{tag.displayName}</div>
+				</div>
 			)}
 		</div>
 	);
@@ -196,8 +192,8 @@ export function JATMAvailableTags({tags}){
 
 
 /**************************************************************************************/
-export function JATMSelectedTags(){
-	let test = useJATMTags();
+export function JATMSelectedTags(props){
+	let jasmState = useJATMTags();
 
 	/****************************************/
 	const removeTag = (id) => {
@@ -236,16 +232,18 @@ export function JATMSelectedTags(){
 		tempState.unused_tags = tempUnusedTags;
 		tempState.used_tags = tempUsedTags;
 
-		test.actions.setTags(tempState);
+		jasmState.actions.setTags(tempState);
 	};
 	/****************************************/
 
 
 	/****************************************/
 	return (
-		<div className="JATM-holder">
+		<div className="JATM-holder JATM-used">
             {jatmTagStore.get().used_tags.map((tag,index) =>
-				<div key={tag.id} onClick={() => {removeTag(tag.id)}}>{tag.displayName}</div>
+				<div className="JATM-tag" key={tag.id} onClick={() => {removeTag(tag.id)}}>
+					<div className={props.background ? 'JATM-tag-text JATM-tag-image' : 'JATM-tag-text'}>{tag.displayName}</div>
+				</div>
 			)}
 		</div>
     );
